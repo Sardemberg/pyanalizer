@@ -17,7 +17,7 @@ class ProblemDAO:
         print("Delete problem with status success")
 
     def show_all(self):
-        query = f"select* from problems"
+        query = f"select * from problems"
         for row in self.cursor.execute(query).fetchall():
             print(f"Description: {row[0]}")
             print(f"Priority: {row[1]}")

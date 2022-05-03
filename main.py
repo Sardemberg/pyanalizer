@@ -1,6 +1,7 @@
-from controllers.ProblemDAO import ProblemDAO
-from models.Problem import Problem
+from models.consumer import Consumer
+from controllers.CustomersDAO import CustomersDAO
 
-problemController = ProblemDAO()
-problem = Problem(description="Testando inserção", priority=1)
-problemController.show_all()
+controller_customer = CustomersDAO()
+consumer = Consumer(name="Carlos", cellphone=88981994454, ip="192.168.1.1", city_id=1, problem_id=1)
+
+controller_customer.show_all()

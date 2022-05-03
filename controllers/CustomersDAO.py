@@ -9,7 +9,7 @@ class CustomersDAO:
          self.cursor = self.connection.cursor()
 
     def create(self, Customers):
-        query = f"insert into customers (name) values ('{Customers.name}','{Customers.cellphone}','{Customers.ip}','{Customers.city_id}','{Customers.problem_id}')"
+        query = f"insert into customers (name, cellphone, ip, city_id, problem_id) values ('{Customers.name}','{Customers.cellphone}','{Customers.ip}','{Customers.city_id}','{Customers.problem_id}')"
         self.cursor.execute(query)
         print("Insert new customer with status success")
     
@@ -19,8 +19,8 @@ class CustomersDAO:
         print("Delete customer with status success")
 
     def show_all(self):
-        query = "select from * customers"
-        for row in self.cursor.execute(query).fetchall:
+        query = "select * from customers"
+        for row in self.cursor.execute(query).fetchall():
             print(f'Name: {row[0]}')
             print(f'CellPhone: {row[1]}')
             print(f'Ip: {row[2]}')

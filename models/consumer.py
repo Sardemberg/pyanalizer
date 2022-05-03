@@ -1,4 +1,4 @@
-class Consumers:
+class Consumer:
     def __init__(self, name, cellphone,ip,city_id,problem_id ):
         self.name = name
         self.cellphone = cellphone
