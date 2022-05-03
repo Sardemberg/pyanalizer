@@ -18,14 +18,9 @@ class CustomersDAO:
         self.cursor.execute(query)
         print("Delete customer with status success")
 
-    def show_all(self):
+    def get_all(self):
         query = "select * from customers"
-        for row in self.cursor.execute(query).fetchall():
-            print(f'Name: {row[0]}')
-            print(f'CellPhone: {row[1]}')
-            print(f'Ip: {row[2]}')
-            print(f'City_id: {row[3]}')
-            print(f'Problem_id: {row[4]}')
+        return self.cursor.execute(query).fetchall()
       
      
     
