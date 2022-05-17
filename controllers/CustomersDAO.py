@@ -1,8 +1,5 @@
-
 import pathlib
 import sqlite3
-
-
 class CustomersDAO:
     def __init__(self):
          self.connection = sqlite3.connect(f"{pathlib.Path().resolve()}/db/banco.sql", isolation_level=None)

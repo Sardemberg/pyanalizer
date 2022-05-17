@@ -17,6 +17,7 @@ class Processes:
             for customer in customers:
                 if self.should_enqueue_ips:
                     self.subqueue_ips.append(customer)
+                    print(self.subqueue_ips)
                     Process(target=self.ips_queue()).start()
 
                     if len(self.subqueue_ips) == 10:
@@ -29,6 +30,7 @@ class Processes:
                         if len(self.subqueue_ips) < 10:
                             self.should_enqueue_ips = True
                             self.subqueue_ips.append(customer)
+                            print(self.subqueue_ips)
                             Process(target=self.ips_queue()).start()
 
     # Private
@@ -38,4 +40,7 @@ class Processes:
         print(output_shell.communicate()[0].split(b'\n')[-2], customer[1])
 
     def messages_queue():
+        pass
+
+    def area_analizer(customer):
         pass

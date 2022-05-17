@@ -1,5 +1,5 @@
-from concurrent.futures import process
 from processing.processes import Processes
+from processing.rq import TestingRq
 
-process = Processes()
-process.execute()
+testing = TestingRq()
+testing.enqueue_all()
