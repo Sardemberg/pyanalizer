@@ -1,6 +1,5 @@
-import pathlib
 import sqlite3
-import json
+import pathlib
 
 class Connection:
     def __init__(self):
@@ -18,7 +17,7 @@ class Connection:
         return self.cursor.execute(query)
 
     def start_connection(self):
-        self.connection = sqlite3.connect("/home/sardemberg/pyanalizer/db/banco.db")
+        self.connection = sqlite3.connect(f"{pathlib.Path().resolve()}/db/banco.db")
         self.cursor = self.connection.cursor()
     
     def close_connection(self):
