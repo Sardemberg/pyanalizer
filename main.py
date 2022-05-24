@@ -1,5 +1,8 @@
-from concurrent.futures import process
-from processing.processes import Processes
+from processing.rq_queues import RQQueues
+from controllers.CustomersDAO import CustomersDAO
 
-process = Processes()
-process.execute()
+customer_controller = CustomersDAO()
+print(customer_controller.get_all())
+
+queue = RQQueues()
+queue.enqueue_ips()
