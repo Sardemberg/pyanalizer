@@ -1,27 +1,30 @@
-
-import pathlib
-import sqlite3
-
+from db.connection import Connection
 
 class CustomersDAO:
-    def __init__(self):
-         self.connection = sqlite3.connect(f"{pathlib.Path().resolve()}/db/banco.sql", isolation_level=None)
-         self.cursor = self.connection.cursor()
-
     def create(self, Customers):
+        db = Connection()
         query = f"insert into customers (name, cellphone, ip, city_id, problem_id) values ('{Customers.name}','{Customers.cellphone}','{Customers.ip}','{Customers.city_id}','{Customers.problem_id}')"
-        self.cursor.execute(query)
+        db.execute(query)
         print("Insert new customer with status success")
     
     def delete(self, customers_id ):
+        db = Connection()
         query = f"delete from customers where id = '{customers_id}'"
-        self.cursor.execute(query)
+        db.execute(query)
         print("Delete customer with status success")
 
-    def get_all(self):
-        query = "select * from customers"
-        return self.cursor.execute(query).fetchall()
-      
-     
-    
+    def execute(self, query):
+        db = Connection()
+        result_data = db.execute(query).fetchall()
+        return result_data
 
+    def update(self, customer):
+        db = Connection()
+        query = f"update customers set name='{customer.name}', cellphone={customer.cellphone}, ip='{customer.ip}', city_id={customer.city_id}, problem_id={customer.problem_id} where id = {customer.id};"
+        db.execute(query)
+        print("Dado atualizado com sucesso")
+
+    def get_all(self):
+        db = Connection()
+        query = "select * from customers"
+        return db.select(query).fetchall()
