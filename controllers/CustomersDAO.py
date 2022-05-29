@@ -28,3 +28,8 @@ class CustomersDAO:
         db = Connection()
         query = "select * from customers"
         return db.select(query).fetchall()
+
+    def get_consumers_errors(self):
+        db = Connection()
+        query = "select id, name, city_id from customers where problem_id is not 0;"
+        return db.select(query).fetchall()

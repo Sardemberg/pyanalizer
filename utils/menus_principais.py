@@ -7,6 +7,11 @@ def menu():
     print("4 - Clientes na espera de uma resposta a cerca da solução probelam ")
     print("5 - Problemas mais recorrentes")
     print("6 - Listas de problemas geral")
-    
-menu()
+
+def menu_conserto(customer_controller):
+    print("Selecione o usuário que deseja atualizar o status:")
+    for customer in customer_controller.get_consumers_errors():
+        print("--------------------")
+        print(f"id: {customer[0]}, Nome: {customer[1]}, cidade: {customer[2]}")
+        print("--------------------")
 
