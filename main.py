@@ -6,4 +6,3 @@ print(customer_controller.get_all())
 
 queue = RQQueues()
 queue.enqueue_ips()
-
