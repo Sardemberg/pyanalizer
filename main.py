@@ -1,12 +1,11 @@
-from processing.rq_queues import RQQueues
 from controllers.CustomersDAO import CustomersDAO
+from processing.processes import Processes
 from time import sleep
 from utils import menus_principais
 
 customer_controller = CustomersDAO()
-
-queue = RQQueues()
-queue.enqueue_ips()
+process = Processes()
+process.enqueue_ips()
 
 while True:
     if(len(customer_controller.get_consumers_errors()) > 0):
