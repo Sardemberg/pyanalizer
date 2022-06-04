@@ -1,13 +1,14 @@
 from db.connection import Connection
 
+
 class CustomersDAO:
     def create(self, Customers):
         db = Connection()
         query = f"insert into customers (name, cellphone, ip, city_id, problem_id) values ('{Customers.name}','{Customers.cellphone}','{Customers.ip}','{Customers.city_id}','{Customers.problem_id}')"
         db.execute(query)
         print("Insert new customer with status success")
-    
-    def delete(self, customers_id ):
+
+    def delete(self, customers_id):
         db = Connection()
         query = f"delete from customers where id = '{customers_id}'"
         db.execute(query)

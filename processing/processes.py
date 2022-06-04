@@ -6,6 +6,7 @@ from random import randint
 import subprocess
 from celery_queues import app
 
+
 class Processes:
     def __init__(self):
         self.consumers_with_problem = []
