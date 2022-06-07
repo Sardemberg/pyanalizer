@@ -1,8 +1,12 @@
 from tkinter import *
 
+from ui.chart.chart_bar import ChartBar
+
 
 class Application:
     def __init__(self, master=None):
+        self.chart_bar = ChartBar()
+        self.show = False
         self.fontePadrao = ("Arial", "10")
         self.firstContainer = Frame(master)
         self.firstContainer["pady"] = 10
@@ -46,10 +50,6 @@ class Application:
                                    text="Problemas encontrados", font=self.fontePadrao, pady=10, height=1, width=20, command=self.showData)
         self.showProblems.pack()
 
-        self.listData = Label(self.fourthContainer,
-                              text="", font=self.fontePadrao,)
-        self.listData.pack()
-
         self.showCharts = Button(self.fifthContainer,
                                  text="Análise de área", font=self.fontePadrao, pady=10, height=1, width=20, command=self.showChart)
         self.showCharts.pack()
@@ -70,9 +70,10 @@ class Application:
 
     def showData(self):
 
-        self.listData['text'] = "teste"
+        self.chart_bar.showChart(self.fourthContainer, )
 
     # chama o gráfico
+
     def showChart(self):
 
-        self.listCharts['text'] = "teste"
+        print("")
