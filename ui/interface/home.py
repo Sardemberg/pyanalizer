@@ -3,7 +3,7 @@ from tkinter import *
 from ui.chart.chart_bar import ChartBar
 
 
-class Application:
+class Home:
     def __init__(self, master=None):
         self.chart_bar = ChartBar()
         self.show = False
