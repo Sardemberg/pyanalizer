@@ -1,8 +1,7 @@
+# lib tkinter
 from tkinter import *
 from tkinter import ttk
 from ui.interface.home import Home
-from ui.chart.chart_bar import ChartBar
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 # lib matplotlib
 import matplotlib.pyplot as plt
 # lib pandas
