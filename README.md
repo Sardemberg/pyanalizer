@@ -1,12 +1,21 @@
 # pyanalizer
 To the project work, it's necessery follow libs:
-    1. Redis
-    2. Celery
-    3. Pickle
+
+    1. Redis ( database cache )
+    2. Celery ( Queue worker admnistrator )
+    3. Pickle ( Front end library )
     
 ## Instalation:
-    - Installing redis:
+
+    - Installing [redis](https://docs.celeryq.dev/en/stable/getting-started/introduction.html#installation):
+    
         ```
         sudo apt install redis-server
         pip install redis
+        ```
+        
+    - Installing [celery](https://docs.celeryq.dev/en/stable/getting-started/introduction.html#installation):
+    
+        ```
+        pip install -U Celery
         ```
