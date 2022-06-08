@@ -19,3 +19,10 @@ To the project work, it's necessery follow libs:
         ```
         pip install -U Celery
         ```
+        
+## Using:
+
+    1. Clone this project
+    2. Execute ```celery -A celery_queues worker -l info -c 10``` in the same folder for main.py
+    3. Execute ```python3 main.py```
+    4. Be happy
