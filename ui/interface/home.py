@@ -1,11 +1,9 @@
 from tkinter import *
 
-from ui.chart.chart_bar import ChartBar
-
 
 class Home:
     def __init__(self, master=None):
-        self.chart_bar = ChartBar()
+
         self.show = False
         self.fontePadrao = ("Arial", "10")
         self.firstContainer = Frame(master)
@@ -70,9 +68,7 @@ class Home:
 
     def showData(self):
 
-        self.chart_bar.showChart(self.fourthContainer, )
-
-    # chama o gráfico
+        print("")
 
     def showChart(self):
 
