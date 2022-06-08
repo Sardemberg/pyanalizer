@@ -7,7 +7,7 @@ To the project work, it's necessery follow libs:
     
 ## Instalation:
 
-    - Installing [redis](https://docs.celeryq.dev/en/stable/getting-started/introduction.html#installation):
+    - Installing [redis]([https://docs.celeryq.dev/en/stable/getting-started/introduction.html#installation](https://phoenixnap.com/kb/install-redis-on-ubuntu-20-04)):
     
         ```
         sudo apt install redis-server
