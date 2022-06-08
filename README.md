@@ -1,11 +1,12 @@
 # pyanalizer
-Instructions for running this project:
-    - Install redis
-    - Install python libs:
-        - celery
-        - redis
-        - ploty
-
-    - Execute this command in your terminal:
-        - celery -A celery_queues worker -l info -c 10
-        - In other command prompt, execute main file with python
+To the project work, it's necessery follow libs:
+    1. Redis
+    2. Celery
+    3. Pickle
+    
+## Instalation:
+    - Installing redis:
+        ```
+        sudo apt install redis-server
+        pip install redis
+        ```
