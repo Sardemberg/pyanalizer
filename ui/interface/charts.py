@@ -8,18 +8,16 @@ class Charts:
 
     def __init__(self, master=None):
 
-        self.firstContainer = Frame(master,)
+        self.cardFirst = Frame(master, borderwidth=1, relief="raised")
+        self.cardFirst.place(x=10, y=20,  width=480, height=280,)
 
-        self.firstContainer.place(x=10, y=20)
+        self.cardSecond = Frame(master, borderwidth=1, relief="raised")
+        self.cardSecond.place(x=10, y=320,  width=480, height=240,)
 
-        self.secondContainer = Frame(master, height=10, bg="red", width=500)
-        self.secondContainer["pady"] = 20
-        self.secondContainer.place(y=240)
-
-        self.thirdContainer = Frame(master)
-
-        self.thirdContainer.place(x=195, y=280)
-
+        self.firstContainer = Frame(self.cardFirst)
+        self.firstContainer.place(x=0, y=10,)
         ChartBar(self.firstContainer)
 
-        ChartPie(self.thirdContainer)
+        self.secondContainer = Frame(self.cardSecond)
+        self.secondContainer.place(x=0, y=10,)
+        ChartPie(self.secondContainer)

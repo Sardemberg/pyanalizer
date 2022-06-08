@@ -9,7 +9,7 @@ class ChartPie:
         figura.patch.set_facecolor('#F0F0F0')
         ax = figura.add_subplot(111)
         canva = FigureCanvasTkAgg(figura, master)
-        canva.get_tk_widget().pack(side="bottom")
+        canva.get_tk_widget().pack(side="left")
         recipe = ["375 g flour",
                   "75 g sugar",
                   "250 g butter",
