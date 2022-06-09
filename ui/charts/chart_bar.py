@@ -7,7 +7,8 @@ import numpy as np
 
 class ChartBar:
 
-    def __init__(self, master=None,):
+    def __init__(self, master=None, values=[], labels=[]):
+
         # criando a figura
         figura = plt.Figure(figsize=(11, 4), dpi=57,)
         figura.patch.set_facecolor('#F0F0F0')
@@ -17,12 +18,11 @@ class ChartBar:
         np.random.seed(19680801)
 
         # configurações do gráfico
-        city = ('Juazeiro do Norte', 'Crato', 'Barbalha', 'Campo Sales', 'Exu')
+        city = labels
         y_pos = np.arange(len(city))
-        performance = 3 + 10 * np.random.rand(len(city))
-        error = np.random.rand(len(city))
-        ax.barh(y_pos, performance, xerr=error, align='center',)
+        performance = values
+        ax.barh(y_pos, performance, align='center',)
         ax.set_yticks(y_pos, labels=city, )
-        ax.invert_yaxis()  # labels read top-to-bottom
+        ax.invert_yaxis()
         ax.set_xlabel('Problemas')
         ax.set_title('titulo')
