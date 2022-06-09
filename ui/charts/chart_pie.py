@@ -4,7 +4,7 @@ import numpy as np
 
 
 class ChartPie:
-    def __init__(self, master=None):
+    def __init__(self, master=None,  values=[], labels=[]):
         # criando a figura
         figura = plt.Figure(figsize=(5, 3), dpi=60)
         figura.patch.set_facecolor('#F0F0F0')
@@ -29,10 +29,10 @@ class ChartPie:
                                           textprops=dict(color="w"))
 
         ax.legend(wedges, ingredients,
-                  title="Ingredients",
+                  title="Problemas",
                   loc="center left",
                   bbox_to_anchor=(1, 0, 0.5, 1))
 
         plt.setp(autotexts, size=8, weight="bold")
 
-        ax.set_title("Matplotlib bakery: A pie")
+        ax.set_title("Gráfico de problemas")

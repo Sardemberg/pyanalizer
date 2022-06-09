@@ -10,8 +10,6 @@ class Charts:
 
     def __init__(self, master=None):
         # pegando dados
-        customer_controller = CustomersDAO()
-        customer_controller.get_consumers_errors()
 
         # criando card com borda
         self.cardFirst = Frame(master, borderwidth=1, relief="raised")

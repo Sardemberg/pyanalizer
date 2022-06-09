@@ -24,5 +24,5 @@ class ChartBar:
         ax.barh(y_pos, performance, align='center',)
         ax.set_yticks(y_pos, labels=city, )
         ax.invert_yaxis()
-        ax.set_xlabel('Problemas')
-        ax.set_title('titulo')
+        ax.set_xlabel('Quantidade')
+        ax.set_title('Gráficos de problemas por cidades')
