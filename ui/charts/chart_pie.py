@@ -5,11 +5,14 @@ import numpy as np
 
 class ChartPie:
     def __init__(self, master=None):
-        figura = plt.Figure(figsize=(5, 3), dpi=55)
+        # criando a figura
+        figura = plt.Figure(figsize=(5, 3), dpi=60)
         figura.patch.set_facecolor('#F0F0F0')
         ax = figura.add_subplot(111)
         canva = FigureCanvasTkAgg(figura, master)
         canva.get_tk_widget().pack(side="left")
+
+        # configurações do gráfico
         recipe = ["375 g flour",
                   "75 g sugar",
                   "250 g butter",
