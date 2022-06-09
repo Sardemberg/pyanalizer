@@ -5,7 +5,7 @@ import numpy as np
 
 class ChartPie:
     def __init__(self, master=None):
-        figura = plt.Figure(figsize=(5, 3), dpi=60)
+        figura = plt.Figure(figsize=(5, 3), dpi=55)
         figura.patch.set_facecolor('#F0F0F0')
         ax = figura.add_subplot(111)
         canva = FigureCanvasTkAgg(figura, master)

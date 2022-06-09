@@ -10,7 +10,7 @@ import numpy as np
 janela = Tk()
 
 # janela principal
-janela.geometry("500x600")
+janela.geometry("650x530")
 janela.title("Pyanalise")
 
 
@@ -18,7 +18,7 @@ janela.title("Pyanalise")
 style = ttk.Style()
 style.configure("TNotebook", highlightbackground="#848a98")
 nb = ttk.Notebook(janela, style="TNotebook")
-nb.place(x=0, y=0, width=500, height=600,)
+nb.place(x=0, y=0, width=650, height=530,)
 
 # criação de abas
 tb1 = Frame(nb)
