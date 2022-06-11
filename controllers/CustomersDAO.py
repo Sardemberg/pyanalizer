@@ -35,4 +35,15 @@ class CustomersDAO:
         query = "select customers.name, customers.ip, cities.name, problems.description from customers inner join problems on customers.problem_id = problems.id inner join cities on customers.city_id = cities.id where problem_id is not 0;"
         response = db.select(query)
         return response.fetchall()
-        
+
+    def get_city_errors(self):
+        db = Connection()
+        query = "select cities.name, count(*) from customers inner join cities on customers.city_id = cities.id where problem_id is not 0 group by cities.name;"
+        response = db.select(query)
+        return response.fetchall()
+
+    def get_problems_errors(self):
+        db = Connection()
+        query = "select problems.description, count(*) from customers inner join problems on problems.id = customers.problem_id where customers.problem_id is not 0 group by problems.id"
+        response = db.select(query)
+        return response.fetchall()
