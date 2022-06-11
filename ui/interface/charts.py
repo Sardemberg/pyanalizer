@@ -11,6 +11,11 @@ class Charts:
     def __init__(self, master=None):
         # pegando dados
 
+        # Chart Bar
+        customer_controller = CustomersDAO()
+        errosChartBar = customer_controller.get_city_errors()
+        errosChartPie = customer_controller.get_problems_errors()
+
         # criando card com borda
         self.cardFirst = Frame(master, borderwidth=1, relief="raised")
         self.cardFirst.place(x=20, y=20,  width=310, height=240,)
@@ -28,10 +33,10 @@ class Charts:
 
         # alocando conteúdo
         self.firstContainer.place(x=0, y=30,)
-        ChartPie(self.firstContainer)
+        ChartPie(self.firstContainer, errosChartPie)
 
         self.secondContainer.place(x=0, y=0,)
         ChartLinear(self.secondContainer)
 
         self.thirdContainer.place(x=40, y=0,)
-        ChartBar(self.thirdContainer)
+        ChartBar(self.thirdContainer, errosChartBar)
