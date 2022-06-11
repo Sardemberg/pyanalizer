@@ -36,7 +36,7 @@ class Processes:
             city_controller.add_new_problem(consumer.city_id)
 
             message = problems_controller.get_message(consumer.problem_id)
-            sms_sender.send_sms.delay(consumer.cellphone, message)
+            # sms_sender.send_sms.delay(consumer.cellphone, message)
         else:
             consumer = Consumer(id=consumer[0], name=consumer[1], cellphone=consumer[2], ip=consumer[3], city_id=consumer[4], problem_id=0)
             history_controller.create(consumer=consumer, result_ping=result_ping)
