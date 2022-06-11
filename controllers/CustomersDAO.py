@@ -1,6 +1,7 @@
 from db.connection import Connection
 import json
 
+
 class CustomersDAO:
     def create(self, Customers):
         db = Connection()
@@ -32,17 +33,18 @@ class CustomersDAO:
 
     def get_consumers_errors(self):
         db = Connection()
-        query = "select count(*), cities.name, problems.description from customers inner join cities on cities.id = customers.city_id inner join problems on problems.id = customers.problem_id where problem_id is not 0 group by cities.id;"
-        result = db.select(query).fetchall()
-        arrayResult = {}
-        for value in result:
-            arrayResult[value[2]] = {'cities': []}
-        
-        for value in result:
-            arrayResult[value[2]]['cities'].append(
-                {
-                    value[1]: value[0]
-                }
-            )
+        query = "select customers.name, customers.ip, cities.name, problems.description from customers inner join problems on customers.problem_id = problems.id inner join cities on customers.city_id = cities.id where problem_id is not 0;"
+        response = db.select(query)
+        return response.fetchall()
 
-        print(json.dumps(arrayResult))
+    def get_city_errors(self):
+        db = Connection()
+        query = "select cities.name, count(*) from customers inner join cities on customers.city_id = cities.id where problem_id is not 0 group by cities.name;"
+        response = db.select(query)
+        return response.fetchall()
+
+    def get_problems_errors(self):
+        db = Connection()
+        query = "select problems.description, count(*) from customers inner join problems on problems.id = customers.problem_id where customers.problem_id is not 0 group by problems.id"
+        response = db.select(query)
+        return response.fetchall()
