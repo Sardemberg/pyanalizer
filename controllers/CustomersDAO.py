@@ -32,17 +32,7 @@ class CustomersDAO:
 
     def get_consumers_errors(self):
         db = Connection()
-        query = "select count(*), cities.name, problems.description from customers inner join cities on cities.id = customers.city_id inner join problems on problems.id = customers.problem_id where problem_id is not 0 group by cities.id;"
-        result = db.select(query).fetchall()
-        arrayResult = {}
-        for value in result:
-            arrayResult[value[2]] = {'cities': []}
+        query = "select customers.name, customers.ip, cities.name, problems.description from customers inner join problems on customers.problem_id = problems.id inner join cities on customers.city_id = cities.id where problem_id is not 0;"
+        response = db.select(query)
+        return response.fetchall()
         
-        for value in result:
-            arrayResult[value[2]]['cities'].append(
-                {
-                    value[1]: value[0]
-                }
-            )
-
-        print(json.dumps(arrayResult))
