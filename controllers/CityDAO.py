@@ -27,8 +27,7 @@ class CityDAO:
 
     def show_all(self):
         query = "select * from cities;"
-        for row in self.cursor.execute(query).fetchall():
-            print(f'Name: {row}')
+        return self.cursor.execute(query).fetchall()
       
      
     
