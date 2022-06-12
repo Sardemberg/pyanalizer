@@ -13,10 +13,9 @@ class TableMain:
         scroll.pack(side=RIGHT, fill=Y)
 
         principal = Listbox(frame, yscrollcommand=scroll.set)
+        print(dados_problemas)
 
-        
-        dados = ttk.Treeview(frame, columns=("Id",
-            "Cidades", "N˚ Problemas", "Resolvidos", "Pendentes"), show="headings")
+        dados = ttk.Treeview(frame, columns=("Id", "Cidades", "N˚ Problemas", "Resolvidos", "Pendentes"), show="headings")
         dados.column("Id", minwidth=0, width=100)
         dados.column("Cidades", minwidth=0, width=200)
         dados.column("N˚ Problemas", minwidth=0, width=100)

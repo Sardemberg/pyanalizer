@@ -1,7 +1,12 @@
 from tkinter import *
 
+from matplotlib.pyplot import cla
+
 from controllers.CityDAO import CityDAO
 from ui.interface.table_main import TableMain
+from controllers.CustomersDAO import CustomersDAO
+from ui.interface.problems_tab import ProblemsTab
+
 
 
 class Home:
@@ -10,3 +15,14 @@ class Home:
         dados_problemas = customer_controller.get_city_problems()
         
         TableMain(master, dados_problemas)
+        
+        
+class Problem: 
+    
+    def __init__(self, master=None):
+        customer_controller = CustomersDAO()
+        dados_customers = customer_controller.get_consumers_errors()
+        
+        ProblemsTab(master, dados_customers)
+        
+        

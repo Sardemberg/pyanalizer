@@ -1,8 +1,10 @@
 # lib tkinter
 from tkinter import *
 from tkinter import ttk
+
+
 from ui.interface.charts import Charts
-from ui.interface.home import Home
+from ui.interface.home import Home, Problem
 # lib pandas
 import numpy as np
 
@@ -34,6 +36,9 @@ nb.add(tb3, text="Problemas")
 # adicionando conteúdo nas abas
 Home(tb1)
 Charts(tb2)
+Problem(tb3)
+
+
 
 
 # loop de execução
