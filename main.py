@@ -16,7 +16,7 @@ janela.title("Pyanalise")
 
 # criando gerenciador de abas
 style = ttk.Style()
-style.configure("TNotebook", highlightbackground="#848a98")
+style.configure("TNotebook", highlightbackground="#d9d9d9")
 nb = ttk.Notebook(janela, style="TNotebook")
 nb.place(x=0, y=0, width=720, height=570,)
 
@@ -28,11 +28,13 @@ tb3 = Frame(nb)
 # adicionando aba
 nb.add(tb1, text="Principal",)
 nb.add(tb2, text="Gráficos")
-nb.add(tb3, text="Histórioco")
+nb.add(tb3, text="Problemas")
 
 
 # adicionando conteúdo nas abas
 Home(tb1)
 Charts(tb2)
+
+
 # loop de execução
 janela.mainloop()

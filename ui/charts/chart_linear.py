@@ -7,7 +7,7 @@ class ChartLinear:
     def __init__(self, master=None, problemas=[]):
         # criando a figura
         figura = plt.Figure(figsize=(6, 4), dpi=55,)
-        figura.patch.set_facecolor('#F0F0F0')
+        figura.patch.set_facecolor('#d9d9d9')
         ax = figura.add_subplot(111)
         canva = FigureCanvasTkAgg(figura, master,)
 

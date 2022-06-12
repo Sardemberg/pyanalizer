@@ -7,7 +7,7 @@ class ChartPie:
     def __init__(self, master=None,  erros=[]):
         # criando a figura
         figura = plt.Figure(figsize=(5, 3), dpi=60)
-        figura.patch.set_facecolor('#F0F0F0')
+        figura.patch.set_facecolor('#d9d9d9')
         ax = figura.add_subplot(111)
         canva = FigureCanvasTkAgg(figura, master)
         canva.get_tk_widget().pack(side="left")
