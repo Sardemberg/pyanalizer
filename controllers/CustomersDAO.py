@@ -48,3 +48,12 @@ class CustomersDAO:
         query = "select problems.description, count(*) from customers inner join problems on problems.id = customers.problem_id where customers.problem_id is not 0 group by problems.id"
         response = db.select(query)
         return response.fetchall()
+
+    def solve_problem(consumer_id):
+        db = Connection()
+        query_remove_problem = f"update customers set problem_id = 0 where id = {consumer_id}"
+        db.execute(query_remove_problem)
+        consumer_city = db.select(
+            f"select city_id from customers where id = {consumer_id}").fetchone()
+        query_add_solved_problem = f"update cities set pending_problems = pending_problems - 1, solved_problems = solved_problems + 1 where id = {consumer_city[0]}"
+        db.execute(query_add_solved_problem)
