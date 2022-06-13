@@ -8,7 +8,7 @@ import numpy as np
 #import tabs
 from ui.tabs.charts_tab import ChartsTab
 from ui.tabs.home_tab import HomeTab
-from ui.tabs.problem_tab import ProblemTab
+from ui.tabs.historic_tab import HistoricTab
 
 # Iniciando aplicação
 janela = Tk()
@@ -38,7 +38,7 @@ nb.add(tb3, text="Problemas")
 # adicionando conteúdo nas abas
 HomeTab(tb1)
 ChartsTab(tb2)
-ProblemTab(tb3)
+HistoricTab(tb3)
 
 
 # loop de execução

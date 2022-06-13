@@ -2,20 +2,33 @@
 from tkinter import *
 
 from controllers.CityDAO import CityDAO
+from controllers.CustomersDAO import CustomersDAO
 from ui.table.city_table import CityTable
+from ui.table.customers_table import CustomersTable
 
 
 class HomeTab:
     def __init__(self, master=None):
         # pegando os dados
-        customer_controller = CityDAO()
-        dados_problemas = customer_controller.get_city_problems()
+        city_controller = CityDAO()
+        dados_problemas = city_controller.get_city_problems()
+        customer_controller = CustomersDAO()
+        dados_customers = customer_controller.get_consumers_errors()
 
+        # criando label frame que vai engloba todo conteudo
+        label_frame = LabelFrame(
+            master, text="Visão Geral", borderwidth=1, relief="solid")
+        label_frame.place(x=20, y=10, width=680, height=520)
         # criando figura onde vai fica a tabela
-        self.firstContainer = Frame(master)
-        self.firstContainer.place(x=20, y=80)
+        self.firstContainer = Frame(label_frame)
+        self.firstContainer.place(x=60, y=20)
+
+        self.secondContainer = Frame(label_frame)
+        self.secondContainer.place(x=60, y=250)
 
         # alocando conteúdo
-        self.title = Label(master, text="Tabela de Visão Geral")
-        self.title.place(x=18, y=25)
+
         CityTable(self.firstContainer, dados_problemas)
+
+        CustomersTable(self.secondContainer, dados_customers,
+                       )

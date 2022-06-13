@@ -19,13 +19,13 @@ class ChartsTab:
         errosChartPie = customer_controller.get_problems_errors()
 
         # criando card com borda
-        self.cardFirst = Frame(master, borderwidth=1, relief="raised")
+        self.cardFirst = Frame(master, borderwidth=1, relief="solid")
         self.cardFirst.place(x=20, y=20,  width=310, height=240,)
 
-        self.cardSecond = Frame(master, borderwidth=1, relief="raised")
+        self.cardSecond = Frame(master, borderwidth=1, relief="solid")
         self.cardSecond.place(x=350, y=20,  width=340, height=240,),
 
-        self.cardThird = Frame(master, borderwidth=1, relief="raised")
+        self.cardThird = Frame(master, borderwidth=1, relief="solid")
         self.cardThird.place(x=20, y=280,  width=670, height=250,)
 
         # criando figura onde vai fica os gráficos
