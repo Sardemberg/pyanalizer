@@ -1,5 +1,5 @@
 from db.connection import Connection
-import json
+
 
 class CustomersDAO:
     def create(self, Customers):
@@ -32,17 +32,33 @@ class CustomersDAO:
 
     def get_consumers_errors(self):
         db = Connection()
-        query = "select count(*), cities.name, problems.description from customers inner join cities on cities.id = customers.city_id inner join problems on problems.id = customers.problem_id where problem_id is not 0 group by cities.id;"
-        result = db.select(query).fetchall()
-        arrayResult = {}
-        for value in result:
-            arrayResult[value[2]] = {'cities': []}
-        
-        for value in result:
-            arrayResult[value[2]]['cities'].append(
-                {
-                    value[1]: value[0]
-                }
-            )
+        query = "select customers.name, customers.ip, cities.name, problems.description from customers inner join problems on customers.problem_id = problems.id inner join cities on customers.city_id = cities.id where problem_id is not 0;"
+        response = db.select(query)
+        return response.fetchall()
 
-        print(json.dumps(arrayResult))
+    def get_city_errors(self):
+        db = Connection()
+        query = "select cities.name, count(*) from customers inner join cities on customers.city_id = cities.id where problem_id is not 0 group by cities.name;"
+        response = db.select(query)
+        return response.fetchall()
+
+    def get_count_customers(self):
+        db = Connection()
+        query = "select count(*) from customers;"
+        response = db.select(query)
+        return response.fetchone()
+
+
+    def get_problems_errors(self):
+        db = Connection()
+        query = "select problems.description, count(*) from customers inner join problems on problems.id = customers.problem_id where customers.problem_id is not 0 group by problems.id"
+        response = db.select(query)
+        return response.fetchall()
+
+    def solve_problem(consumer_id):
+        db = Connection()
+        query_remove_problem = f"update customers set problem_id = 0 where id = {consumer_id}"
+        db.execute(query_remove_problem)
+        consumer_city = db.select(f"select city_id from customers where id = {consumer_id}").fetchone()
+        query_add_solved_problem = f"update cities set pending_problems = pending_problems - 1, solved_problems = solved_problems + 1 where id = {consumer_city[0]}"
+        db.execute(query_add_solved_problem)

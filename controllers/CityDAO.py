@@ -19,22 +19,16 @@ class CityDAO:
         print("Delete city with status success")
     
     def add_new_problem(self, city_id):
-        query = f"select problems_quantity from cities where id = {city_id};"
-        problems_quantity = self.cursor.execute(query).fetchone()
-        if problems_quantity[0] == None: 
-            problems_quantity = 1
-        else:
-            problems_quantity = problems_quantity[0] + 1
-            print("Atualização:", problems_quantity)
-        query_insert_new_problem = f"update cities set problems_quantity = {problems_quantity} where id = {city_id};"
-        self.cursor.execute(query_insert_new_problem)
-        print("Dado atualizado com sucesso")
+        query_insert_problem = f"update cities set problems_quantity = problems_quantity + 1 where id = {city_id}"
+        query_insert_pending_problem = f"update cities set pending_problems = pending_problems + 1 where id = {city_id}"
 
-    def show_all(self):
-        query = "select * from cities;"
-        for row in self.cursor.execute(query).fetchall():
-            print(f'Name: {row}')
-      
+        self.cursor.execute(query_insert_problem)
+        self.cursor.execute(query_insert_pending_problem)
+
+    def get_city_problems(self):
+        query = "select id, name, problems_quantity, pending_problems from cities;"   
+        result = self.cursor.execute(query)
+        return result.fetchall()
      
     
 
