@@ -1,21 +1,20 @@
 from tkinter import *
 from tkinter import ttk
 
-from controllers.CityDAO import CityDAO
 
-class TableMain:
-    
+class CityTable:
+
     def __init__(self, master=None, dados_problemas=[]):
-        
-        frame = Frame(master)
+
+        frame = Frame(master, )
 
         scroll = Scrollbar(frame)
         scroll.pack(side=RIGHT, fill=Y)
 
         principal = Listbox(frame, yscrollcommand=scroll.set)
-        print(dados_problemas)
 
-        dados = ttk.Treeview(frame, columns=("Id", "Cidades", "N˚ Problemas", "Resolvidos", "Pendentes"), show="headings")
+        dados = ttk.Treeview(frame, columns=(
+            "Id", "Cidades", "N˚ Problemas", "Resolvidos", "Pendentes"), show="headings", height=11)
         dados.column("Id", minwidth=0, width=100)
         dados.column("Cidades", minwidth=0, width=200)
         dados.column("N˚ Problemas", minwidth=0, width=100)
@@ -32,4 +31,4 @@ class TableMain:
             dados.insert("", "end", values=(id, ci, np, re, pe))
 
         scroll.config(command=dados.yview)
-        frame.place(x=10, y=50)
+        frame.pack()

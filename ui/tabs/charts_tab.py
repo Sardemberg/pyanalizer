@@ -6,7 +6,7 @@ from ui.charts.chart_linear import ChartLinear
 from ui.charts.chart_pie import ChartPie
 
 
-class Charts:
+class ChartsTab:
 
     def __init__(self, master=None):
         # pegando dados

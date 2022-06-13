@@ -3,10 +3,12 @@ from tkinter import *
 from tkinter import ttk
 
 
-from ui.interface.charts import Charts
-from ui.interface.home import Home, Problem
 # lib pandas
 import numpy as np
+from ui.tabs.charts_tab import ChartsTab
+
+from ui.tabs.home_tab import HomeTab
+from ui.tabs.problem_tab import ProblemTab
 
 # Iniciando aplicação
 janela = Tk()
@@ -34,11 +36,9 @@ nb.add(tb3, text="Problemas")
 
 
 # adicionando conteúdo nas abas
-Home(tb1)
-Charts(tb2)
-Problem(tb3)
-
-
+HomeTab(tb1)
+ChartsTab(tb2)
+ProblemTab(tb3)
 
 
 # loop de execução
