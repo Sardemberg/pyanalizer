@@ -11,5 +11,5 @@ class ProblemTab:
         self.firstContainer = Frame(master)
         self.firstContainer.place(x=20, y=80)
         CustomersTable(self.firstContainer, dados_customers)
-        self.title = Label(master, text="Tabela de visão geral")
-        self.title.place(x=0, y=0)
+        self.title = Label(master, text="Tabela de Visão Geral")
+        self.title.place(x=18, y=25)
