@@ -26,6 +26,10 @@ class HomeTab:
         self.secondContainer = Frame(label_frame)
         self.secondContainer.place(x=60, y=250)
 
+        # criando bordas para alocar conteúdo
+        self.cardFirst = Frame(master, borderwidth=1, relief="raised")
+        self.cardFirst.place(x=20, y=27,  width=420, height=150,)
+
         # alocando conteúdo
 
         CityTable(self.firstContainer, dados_problemas)
