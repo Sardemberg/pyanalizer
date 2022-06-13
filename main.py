@@ -1,6 +1,9 @@
 # lib tkinter
 from tkinter import *
 from tkinter import ttk
+from processing.processes import Processes
+from controllers.CustomersDAO import CustomersDAO
+from time import sleep
 
 # lib pandas
 import numpy as np
@@ -40,4 +43,16 @@ ProblemsTab(tb2)
 
 
 # loop de execução
+
+Processes().enqueue_ips()
+count_time = 0
+count_customers = CustomersDAO().get_count_customers()
+count_customers = count_customers[0] / 10
+
+if(isinstance((count_customers), int)):
+    sleep(count_customers * 5)
+else:
+    seconds = int(count_customers) + 5
+    sleep(seconds)
+
 janela.mainloop()

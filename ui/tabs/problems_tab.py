@@ -1,7 +1,9 @@
 # lib tkinter
 from tkinter import *
+from turtle import delay
 from controllers.CustomersDAO import CustomersDAO
 from controllers.HistoryDAO import HistoryDAO
+from time import sleep
 
 # importando gráficos
 from ui.charts.chart_pie import ChartPie
@@ -14,7 +16,8 @@ class ProblemsTab:
         # pegando dados
 
         # Chart Bar
-        history_controller = HistoryDAO()
+       
+        self. history_controller = HistoryDAO()
         customer_controller = CustomersDAO()
         table_customers = customer_controller.get_consumers_errors()
 
@@ -37,7 +40,16 @@ class ProblemsTab:
 
         CustomersTable(self.secondContainer, table_customers,)
 
-        self.buttom_card = Button(
-            master, text="Gerar documento", command=history_controller.create)
+        self.buttom_history = Button(
+            master, text="Gerar Histórico", command = self.getDocument)
 
-        self.buttom_card.place(x=500, y=120)
+        self.buttom_history.place(x=480, y=120)
+
+        self.label_history =Label(master, text= "")
+        self.label_history.place(x=430, y= 175)
+
+
+    def getDocument(self):
+            self.history_controller.build_file()
+            self.label_history['text'] = "Documento gerado com sucesso"
+

@@ -21,12 +21,13 @@ class HomeTab:
         label_frame = LabelFrame(
             master, text="Visão Geral", borderwidth=1, relief="solid")
         label_frame.place(x=20, y=10, width=680, height=520)
+        
         # criando figura onde vai fica a tabela
         self.firstContainer = Frame(label_frame)
         self.firstContainer.place(x=60, y=20)
 
         self.secondContainer = Frame(label_frame)
-        self.secondContainer.place(x=60, y=250, width=550)
+        self.secondContainer.place(x=25, y=250, width=625)
 
         # alocando conteúdo
 

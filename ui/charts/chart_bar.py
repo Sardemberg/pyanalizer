@@ -16,7 +16,7 @@ class ChartBar:
             valuesChartBar.append(erro[1])
 
         # criando a figura
-        figura = plt.Figure(figsize=(10, 4), dpi=57,)
+        figura = plt.Figure(figsize=(15, 4), dpi=60,)
         figura.patch.set_facecolor('#d9d9d9')
         ax = figura.add_subplot(111)
         canva = FigureCanvasTkAgg(figura, master,)

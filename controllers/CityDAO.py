@@ -26,7 +26,7 @@ class CityDAO:
         self.cursor.execute(query_insert_pending_problem)
 
     def get_city_problems(self):
-        query = "select * from cities;"      
+        query = "select id, name, problems_quantity, pending_problems from cities;"   
         result = self.cursor.execute(query)
         return result.fetchall()
      

@@ -1,3 +1,6 @@
+import sqlite3
+import pathlib
+
 from controllers.CityDAO import CityDAO
 from controllers.ProblemDAO import ProblemDAO
 from controllers.CustomersDAO import CustomersDAO
@@ -9,6 +12,36 @@ from models.Problem import Problem
 city_controller = CityDAO()
 problem_controller = ProblemDAO()
 customer_controller = CustomersDAO()
+
+
+print("Dropping database...")
+
+connection = sqlite3.connect(f"{pathlib.Path().resolve()}/db/banco.db")
+cursor = connection.cursor()
+
+cursor.execute("drop table customers;")
+cursor.execute("drop table cities;")
+cursor.execute("drop table problems;")
+cursor.execute("drop table history;")
+
+cursor.execute(""" 
+CREATE TABLE customers(id integer not null primary key autoincrement,name varchar(200), cellphone int(11), ip varchar(20), city_id integer(10) not null, problem_id integer(10) not null, constraint fk_city foreign key (city_id) references cities (id), constraint fk_problem foreign key (problem_id) references problems (id));  
+""")
+
+cursor.execute(""" 
+CREATE TABLE problems(id integer not null primary key autoincrement, description string, priority integer, message string);
+""")
+
+cursor.execute(""" 
+CREATE TABLE history(id integer not null primary key autoincrement, consumer_name string, created_at datetime, status string);
+""")
+
+cursor.execute(""" 
+CREATE TABLE cities(id integer not null primary key autoincrement,name varchar(100), problems_quantity integer default 0, pending_problems integer default 0, solved_problems integer default 0);  
+""")
+
+connection.commit()
+connection.close()
 
 print("Init populate")
 print("...")
