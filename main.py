@@ -1,13 +1,43 @@
-from controllers.CustomersDAO import CustomersDAO
-from processing.processes import Processes
-from time import sleep
-from utils import menus_principais
+# lib tkinter
+from tkinter import *
+from tkinter import ttk
 
-customer_controller = CustomersDAO()
-# process = Processes()
-# process.enqueue_ips()
+# lib pandas
+import numpy as np
 
-# CustomersDAO.solve_problem(5)
+#import tabs
+from ui.tabs.problems_tab import ProblemsTab
+from ui.tabs.home_tab import HomeTab
 
-print(customer_controller.get_consumers_errors())
-# print(customer_controller.get_problems_errors())
+
+# Iniciando aplicação
+janela = Tk()
+
+# janela principal
+janela.geometry("720x570")
+janela.title("Pyanalise")
+
+
+# criando gerenciador de abas
+style = ttk.Style()
+style.configure("TNotebook", highlightbackground="#d9d9d9")
+nb = ttk.Notebook(janela, style="TNotebook")
+nb.place(x=0, y=0, width=720, height=570,)
+
+# criação de abas
+tb1 = Frame(nb)
+tb2 = Frame(nb)
+tb3 = Frame(nb)
+
+# adicionando aba
+nb.add(tb1, text="Principal",)
+nb.add(tb2, text="Problemas")
+
+
+# adicionando conteúdo nas abas
+HomeTab(tb1)
+ProblemsTab(tb2)
+
+
+# loop de execução
+janela.mainloop()

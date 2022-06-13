@@ -1,6 +1,7 @@
 from db.connection import Connection
 import json
 
+
 class CustomersDAO:
     def create(self, Customers):
         db = Connection()

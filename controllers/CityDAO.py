@@ -25,11 +25,10 @@ class CityDAO:
         self.cursor.execute(query_insert_problem)
         self.cursor.execute(query_insert_pending_problem)
 
-    def show_all(self):
-        query = "select * from cities;"
-        for row in self.cursor.execute(query).fetchall():
-            print(f'Name: {row}')
-      
+    def get_city_problems(self):
+        query = "select * from cities;"      
+        result = self.cursor.execute(query)
+        return result.fetchall()
      
     
 
