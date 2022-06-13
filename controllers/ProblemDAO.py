@@ -7,7 +7,7 @@ class ProblemDAO:
         self.cursor = self.connection.cursor()
 
     def create(self, Problem):
-        query = f"insert into problems (description, priority) values ('{Problem.description}', '{Problem.priority}')"
+        query = f"insert into problems (description, priority, message) values ('{Problem.description}', {Problem.priority}, '{Problem.message}')"
         self.cursor.execute(query)
         print("Insert new problem with status success")
 
