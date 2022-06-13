@@ -6,9 +6,9 @@ from tkinter import ttk
 import numpy as np
 
 #import tabs
-from ui.tabs.charts_tab import ChartsTab
+from ui.tabs.problems_tab import ProblemsTab
 from ui.tabs.home_tab import HomeTab
-from ui.tabs.historic_tab import HistoricTab
+
 
 # Iniciando aplicação
 janela = Tk()
@@ -31,14 +31,12 @@ tb3 = Frame(nb)
 
 # adicionando aba
 nb.add(tb1, text="Principal",)
-nb.add(tb2, text="Gráficos")
-nb.add(tb3, text="Problemas")
+nb.add(tb2, text="Problemas")
 
 
 # adicionando conteúdo nas abas
 HomeTab(tb1)
-ChartsTab(tb2)
-HistoricTab(tb3)
+ProblemsTab(tb2)
 
 
 # loop de execução

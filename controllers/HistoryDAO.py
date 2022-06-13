@@ -1,6 +1,7 @@
 from db.connection import Connection
 from sqlite3 import Timestamp
 
+
 class HistoryDAO:
     def create(self, consumer, result_ping):
         connection = Connection()
