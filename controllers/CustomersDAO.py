@@ -1,5 +1,6 @@
 from db.connection import Connection
 
+
 class CustomersDAO:
     def create(self, Customers):
         db = Connection()

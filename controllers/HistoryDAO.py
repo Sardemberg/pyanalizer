@@ -3,6 +3,7 @@ from sqlite3 import Timestamp
 from datetime import date
 import pathlib
 
+
 class HistoryDAO:
     def create(self, consumer, result_ping):
         connection = Connection()
