@@ -2,11 +2,11 @@
 from tkinter import *
 from tkinter import ttk
 
-
 # lib pandas
 import numpy as np
-from ui.tabs.charts_tab import ChartsTab
 
+#import tabs
+from ui.tabs.charts_tab import ChartsTab
 from ui.tabs.home_tab import HomeTab
 from ui.tabs.problem_tab import ProblemTab
 

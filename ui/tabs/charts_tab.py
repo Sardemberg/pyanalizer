@@ -1,6 +1,8 @@
+# lib tkinter
 from tkinter import *
 from controllers.CustomersDAO import CustomersDAO
 
+# importando gráficos
 from ui.charts.chart_bar import ChartBar
 from ui.charts.chart_linear import ChartLinear
 from ui.charts.chart_pie import ChartPie
