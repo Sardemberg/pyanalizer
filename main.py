@@ -12,6 +12,17 @@ import numpy as np
 from ui.tabs.problems_tab import ProblemsTab
 from ui.tabs.home_tab import HomeTab
 
+# Iniciando análise de dados
+Processes().enqueue_ips()
+count_time = 0
+count_customers = CustomersDAO().get_count_customers()
+count_customers = count_customers[0] / 10
+
+if(isinstance((count_customers), int)):
+    sleep(count_customers * 5)
+else:
+    seconds = int(count_customers) + 5
+    sleep(seconds)
 
 # Iniciando aplicação
 janela = Tk()
@@ -43,16 +54,5 @@ ProblemsTab(tb2)
 
 
 # loop de execução
-
-Processes().enqueue_ips()
-count_time = 0
-count_customers = CustomersDAO().get_count_customers()
-count_customers = count_customers[0] / 10
-
-if(isinstance((count_customers), int)):
-    sleep(count_customers * 5)
-else:
-    seconds = int(count_customers) + 5
-    sleep(seconds)
 
 janela.mainloop()

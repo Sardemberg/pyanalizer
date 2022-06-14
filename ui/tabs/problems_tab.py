@@ -1,9 +1,7 @@
 # lib tkinter
 from tkinter import *
-from turtle import delay
 from controllers.CustomersDAO import CustomersDAO
 from controllers.HistoryDAO import HistoryDAO
-from time import sleep
 
 # importando gráficos
 from ui.charts.chart_pie import ChartPie

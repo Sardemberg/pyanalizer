@@ -4,7 +4,7 @@ from celery_queues import app
 class SendSMS:
     @app.task(name='sending_sms')
     def send_sms(number, message):
-        client = Client('AC97792d3fc453c5c65bbad8d87c9d9e4b', '2869f189f082c5dc4bffa820ec22d360')
+        client = Client('AC97792d3fc453c5c65bbad8d87c9d9e4b', '86dab6c3e2a82c6262e13d0d005969ff')
         message_twilio = client.messages \
                 .create(
                      body=f"{message}",
